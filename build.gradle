@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group 'net.shadew'
+version '0.1'
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://maven.shadew.net/'
+    }
+    maven {
+        url "https://libraries.minecraft.net"
+    }
+}
+
+dependencies {
+    implementation "net.shadew:game:$rootProject.version_game"
+
+    testImplementation 'com.mojang:brigadier:1.0.18' // Useful for command parsing
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+apply from: 'lwjgl.gradle'
